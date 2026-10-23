@@ -1,0 +1,1664 @@
+
+/* ==========================================
+   REZENDE — CONECTA SÍNDICOS
+   ARQUIVO: style.css
+   ========================================== */
+
+/* FONTES */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+
+/* CONFIGURAÇÕES GERAIS */
+
+:root {
+  --blue: #102d50;
+  --blue-dark: #091d35;
+  --blue-light: #193d65;
+
+  --orange: #ed791c;
+  --orange-light: #f49a38;
+
+  --cream: #f5f3ef;
+  --white: #ffffff;
+
+  --text: #202d39;
+  --muted: #697580;
+  --line: #e1e4e7;
+
+  --font-title: 'Manrope', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+
+  --radius: 14px;
+  --container: 1200px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 4px;
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: min(90%, var(--container));
+  margin-inline: auto;
+}
+
+section {
+  position: relative;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-title);
+  letter-spacing: -0.045em;
+}
+
+h1,
+h2 {
+  font-weight: 800;
+  line-height: 1.13;
+}
+
+h2 {
+  font-size: clamp(35px, 4.2vw, 60px);
+}
+
+h2 em,
+h1 em {
+  font-style: normal;
+  color: var(--orange);
+}
+
+p {
+  line-height: 1.8;
+}
+
+::selection {
+  background: var(--orange);
+  color: white;
+}
+
+.skip {
+  position: absolute;
+  left: 15px;
+  top: -100px;
+  z-index: 9999;
+  background: var(--orange);
+  padding: 12px 20px;
+  color: white;
+}
+
+.skip:focus {
+  top: 15px;
+}
+
+
+/* ==========================================
+   BOTÕES
+   ========================================== */
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+
+  background: var(--orange);
+  color: white;
+
+  border: 1px solid var(--orange);
+  border-radius: 6px;
+
+  padding: 17px 24px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  transition:
+    background .25s ease,
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+.btn:hover {
+  background: #d86511;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(237,121,28,.23);
+}
+
+.btn-small {
+  padding: 12px 17px;
+  gap: 12px;
+  font-size: 12px;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+
+  transition: color .2s ease;
+}
+
+.text-link:hover {
+  color: var(--orange-light);
+}
+
+.under-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 30px;
+
+  margin-top: 26px;
+  padding-bottom: 9px;
+
+  border-bottom: 1px solid var(--orange);
+
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 700;
+
+  transition: color .2s ease;
+}
+
+.under-link:hover {
+  color: var(--orange);
+}
+
+
+/* ==========================================
+   CABEÇALHO / MENU
+   ========================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: rgba(255,255,255,.97);
+  backdrop-filter: blur(15px);
+
+  border-bottom: 1px solid var(--line);
+}
+
+.nav {
+  height: 86px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 24px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  flex-shrink: 0;
+}
+
+.brand-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--blue);
+  color: white;
+
+  width: 43px;
+  height: 43px;
+
+  border-radius: 6px;
+
+  font-family: var(--font-title);
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -3px;
+}
+
+.mark-dot {
+  color: var(--orange);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+
+  font-family: var(--font-title);
+  font-size: 22px;
+  font-weight: 800;
+
+  color: var(--blue);
+  letter-spacing: -.06em;
+  line-height: 1;
+}
+
+.brand-text small {
+  font-family: var(--font-body);
+  font-size: 6.5px;
+  letter-spacing: .08em;
+
+  margin-top: 6px;
+  font-weight: 800;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+}
+
+nav a {
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 700;
+
+  transition: color .2s ease;
+}
+
+nav a:hover {
+  color: var(--orange);
+}
+
+.menu-toggle {
+  display: none;
+
+  background: var(--blue);
+  color: white;
+  border: 0;
+
+  width: 43px;
+  height: 43px;
+
+  border-radius: 5px;
+  font-size: 22px;
+}
+
+
+/* ==========================================
+   HERO / PRIMEIRA TELA
+   ========================================== */
+
+.hero {
+  background: var(--blue);
+  color: white;
+
+  min-height: 680px;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+
+  gap: 70px;
+  padding-top: 95px;
+  padding-bottom: 70px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-bottom: 26px;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .15em;
+
+  color: var(--orange);
+}
+
+.eyebrow.light {
+  color: var(--orange-light);
+}
+
+.eyebrow-line {
+  display: inline-block;
+  height: 2px;
+  width: 28px;
+  background: currentColor;
+}
+
+.hero h1 {
+  font-size: clamp(43px, 5vw, 75px);
+  line-height: 1.08;
+
+  margin-bottom: 28px;
+  letter-spacing: -.065em;
+}
+
+.hero-copy > p {
+  max-width: 550px;
+  font-size: 15px;
+  color: #c7d2df;
+}
+
+.hero .hero-lead {
+  color: white;
+  font-weight: 700;
+  font-size: clamp(17px, 2vw, 21px);
+
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 28px;
+  margin-top: 32px;
+}
+
+.hero-note {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  max-width: 400px;
+
+  margin-top: 52px;
+  padding-top: 21px;
+
+  border-top: 1px solid rgba(255,255,255,.17);
+
+  color: #adbecd;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.note-symbol {
+  font-size: 28px;
+  color: var(--orange);
+}
+
+
+/* ARQUITETURA VISUAL DO HERO */
+
+.hero-art {
+  height: 470px;
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at 80% 12%, rgba(237,121,28,.25), transparent 35%),
+    linear-gradient(140deg, #254d70, #0a2039);
+
+  border-radius: 8px;
+}
+
+.hero-art::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px);
+
+  background-size: 43px 43px;
+}
+
+.hero-art::after {
+  content: "";
+  position: absolute;
+
+  width: 380px;
+  height: 380px;
+
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 50%;
+
+  right: -150px;
+  top: -170px;
+}
+
+.building {
+  position: absolute;
+  bottom: 0;
+
+  background-color: #6e8396;
+
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 19px,
+      rgba(255,255,255,.45) 19px 33px,
+      transparent 33px 49px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 38px,
+      rgba(10,32,57,.7) 38px 47px
+    );
+
+  box-shadow: -10px 0 30px rgba(0,0,0,.14);
+}
+
+.building-one {
+  height: 75%;
+  width: 27%;
+  left: 12%;
+  background-color: #4e6a83;
+}
+
+.building-two {
+  height: 94%;
+  width: 35%;
+  left: 38%;
+  background-color: #a7b5bd;
+}
+
+.building-three {
+  height: 57%;
+  width: 31%;
+  right: -3%;
+  background-color: #607d91;
+}
+
+.art-caption {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  right: 25px;
+
+  z-index: 3;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 15px;
+  padding: 20px;
+
+  background: rgba(8,27,48,.84);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255,255,255,.17);
+  border-radius: 6px;
+}
+
+.art-caption span {
+  color: #c7d2df;
+  font-size: 9px;
+  letter-spacing: .12em;
+}
+
+.art-caption strong {
+  font-family: var(--font-title);
+  font-size: 18px;
+  line-height: 1.3;
+  text-align: right;
+}
+
+.hero-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-top: 23px;
+  padding-bottom: 26px;
+
+  border-top: 1px solid rgba(255,255,255,.14);
+}
+
+.hero-bottom span {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  color: #93aabf;
+}
+
+.hero-bottom a {
+  font-size: 23px;
+  color: var(--orange);
+}
+
+
+/* ==========================================
+   SEÇÕES GERAIS
+   ========================================== */
+
+.section {
+  padding: 110px 0;
+}
+
+.warm {
+  background: var(--cream);
+}
+
+.section-head {
+  display: grid;
+  grid-template-columns: 1.5fr .5fr;
+  align-items: end;
+
+  gap: 80px;
+  margin-bottom: 54px;
+}
+
+.section-head h2 {
+  max-width: 810px;
+}
+
+.section-head > p {
+  max-width: 340px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+
+/* ==========================================
+   DESAFIOS
+   ========================================== */
+
+.challenge-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.challenge {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 310px;
+  padding: 25px;
+
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+
+.challenge:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(16,45,80,.08);
+}
+
+.challenge::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+
+  transition: transform .3s ease;
+}
+
+.challenge:hover::after {
+  transform: scaleX(1);
+}
+
+.challenge-number {
+  color: #afb8c0;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.challenge-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 65px;
+  height: 65px;
+
+  margin-top: 46px;
+  margin-bottom: 28px;
+
+  background: #fff0e5;
+  border-radius: 50%;
+
+  font-size: 31px;
+  color: var(--orange);
+}
+
+.challenge h3 {
+  color: var(--blue);
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.challenge p {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+
+/* ==========================================
+   APRESENTAÇÃO DO PROGRAMA
+   ========================================== */
+
+.intro {
+  background: white;
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr .8fr;
+  gap: 120px;
+  align-items: center;
+}
+
+.intro-grid h2 {
+  max-width: 600px;
+}
+
+.intro-grid > div:last-child p {
+  color: var(--muted);
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.intro-grid strong {
+  color: var(--blue);
+}
+
+
+/* ==========================================
+   BENEFÍCIOS INTERATIVOS
+   ========================================== */
+
+.blue {
+  background: var(--blue);
+  color: white;
+}
+
+.blue .section-head > p {
+  color: #a8bbce;
+}
+
+.blue h2 {
+  color: white;
+}
+
+.benefit-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+
+  align-items: stretch;
+}
+
+.benefit-options {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.benefit-tab {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  width: 100%;
+  text-align: left;
+
+  padding: 21px 22px;
+
+  background: rgba(255,255,255,.045);
+  color: #d1dce7;
+
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 5px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  transition:
+    background .25s ease,
+    border-color .25s ease,
+    color .25s ease;
+}
+
+.benefit-tab span {
+  color: #7290ac;
+  font-size: 11px;
+}
+
+.benefit-tab b {
+  margin-left: auto;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.benefit-tab:hover {
+  border-color: var(--orange);
+  background: rgba(255,255,255,.09);
+}
+
+.benefit-tab.active {
+  background: var(--orange);
+  color: white;
+  border-color: var(--orange);
+}
+
+.benefit-tab.active span {
+  color: white;
+}
+
+.benefit-detail {
+  min-height: 480px;
+  padding: 40px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #f5f3ef;
+  color: var(--blue);
+
+  border-radius: 6px;
+}
+
+.detail-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.detail-top > span:first-child {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  color: var(--orange);
+}
+
+.detail-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 75px;
+  height: 75px;
+
+  border: 1px solid #d9d7d2;
+  border-radius: 50%;
+
+  color: var(--orange);
+  font-size: 39px;
+}
+
+.benefit-detail h3 {
+  font-size: clamp(29px, 3vw, 44px);
+  line-height: 1.2;
+
+  margin-top: 80px;
+  margin-bottom: 20px;
+}
+
+.benefit-detail > p {
+  max-width: 420px;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.detail-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  margin-top: auto;
+  padding-top: 35px;
+
+  border-top: 1px solid #d9d7d2;
+}
+
+.detail-bottom span {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+
+.detail-bottom a {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--orange);
+}
+
+.disclaimer {
+  margin-top: 25px;
+  color: #8fa6ba;
+  font-size: 11px;
+}
+
+
+/* ==========================================
+   COMO FUNCIONA
+   ========================================== */
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.steps article {
+  background: white;
+  padding: 32px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.steps article > span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 35px;
+  margin-bottom: 30px;
+
+  border-bottom: 1px solid var(--line);
+
+  font-family: var(--font-title);
+  font-size: 51px;
+  font-weight: 800;
+
+  color: var(--orange);
+  letter-spacing: -.06em;
+}
+
+.steps article > span i {
+  font-size: 23px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.steps h3 {
+  font-size: 22px;
+  color: var(--blue);
+  margin-bottom: 13px;
+}
+
+.steps p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+
+/* ==========================================
+   OPORTUNIDADES COMERCIAIS
+   ========================================== */
+
+.opportunities {
+  background: var(--blue-dark);
+  color: white;
+  overflow: hidden;
+}
+
+.opportunities::before {
+  content: "";
+  position: absolute;
+
+  width: 650px;
+  height: 650px;
+
+  right: -290px;
+  top: -290px;
+
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 50%;
+}
+
+.opportunity-grid {
+  display: grid;
+  grid-template-columns: 1fr .75fr;
+  align-items: center;
+
+  gap: 100px;
+}
+
+.opportunity-grid h2 {
+  margin-bottom: 26px;
+}
+
+.opportunity-grid > div:first-child > p {
+  max-width: 500px;
+  color: #b2c2d1;
+  font-size: 15px;
+}
+
+.offer-card {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 390px;
+  padding: 35px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--orange);
+  border-radius: 7px;
+}
+
+.offer-tag {
+  display: inline-block;
+  align-self: flex-start;
+
+  border: 1px solid rgba(255,255,255,.6);
+  border-radius: 30px;
+
+  padding: 8px 12px;
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .09em;
+}
+
+.offer-spark {
+  position: absolute;
+  right: 35px;
+  top: 90px;
+
+  font-size: 100px;
+  line-height: 1;
+  opacity: .28;
+}
+
+.offer-card h3 {
+  position: relative;
+  z-index: 2;
+
+  max-width: 320px;
+  margin-top: 100px;
+  margin-bottom: 15px;
+
+  font-size: 34px;
+  line-height: 1.2;
+}
+
+.offer-card p {
+  position: relative;
+  z-index: 2;
+
+  max-width: 350px;
+
+  color: rgba(255,255,255,.9);
+  font-size: 13px;
+}
+
+.offer-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: auto;
+  padding-top: 20px;
+
+  border-top: 1px solid rgba(255,255,255,.4);
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.offer-footer span {
+  font-size: 22px;
+}
+
+
+/* ==========================================
+   CONTATO
+   ========================================== */
+
+.contact {
+  background: white;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr .8fr;
+
+  gap: 100px;
+  align-items: center;
+}
+
+.contact h2 {
+  margin-bottom: 25px;
+}
+
+.contact-grid > div:first-child > p {
+  color: var(--muted);
+  font-size: 15px;
+  max-width: 550px;
+}
+
+.contact-small {
+  margin-top: 24px;
+  font-size: 12px !important;
+  font-weight: 700;
+  color: var(--orange) !important;
+}
+
+.contact-card {
+  padding: 35px;
+
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+}
+
+.contact-card-top {
+  color: var(--orange);
+  font-size: 10px;
+  letter-spacing: .1em;
+  font-weight: 800;
+}
+
+.contact-identity {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  margin-top: 35px;
+  margin-bottom: 30px;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 65px;
+  height: 65px;
+
+  flex-shrink: 0;
+
+  background: var(--blue);
+  color: white;
+
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: 29px;
+  letter-spacing: -3px;
+
+  border-radius: 50%;
+}
+
+.contact-identity > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.contact-identity strong {
+  font-size: 17px;
+  color: var(--blue);
+}
+
+.contact-identity span {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.contact-button {
+  display: flex;
+  width: 100%;
+  padding: 19px;
+}
+
+.email-link {
+  display: block;
+  margin-top: 19px;
+
+  text-align: center;
+  color: var(--blue);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  overflow-wrap: anywhere;
+}
+
+.email-link:hover {
+  color: var(--orange);
+}
+
+.contact-card > p {
+  margin-top: 26px;
+  padding-top: 18px;
+
+  border-top: 1px solid #dadddf;
+
+  font-size: 11px;
+  color: var(--muted);
+}
+
+
+/* ==========================================
+   RODAPÉ
+   ========================================== */
+
+footer {
+  background: var(--blue);
+  color: white;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+
+  gap: 60px;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.footer-brand .brand-mark {
+  background: white;
+  color: var(--blue);
+}
+
+.footer-brand .brand-text {
+  color: white;
+}
+
+.footer-main > div:first-child > p {
+  margin-top: 24px;
+  color: #9cb1c5;
+  font-size: 13px;
+}
+
+.footer-main > div:not(:first-child) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 17px;
+}
+
+.footer-main strong {
+  color: var(--orange-light);
+  font-size: 10px;
+  letter-spacing: .12em;
+  margin-bottom: 8px;
+}
+
+.footer-main > div:not(:first-child) a {
+  color: #b5c5d3;
+  font-size: 12px;
+}
+
+.footer-main > div:not(:first-child) a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  padding-top: 23px;
+  padding-bottom: 23px;
+
+  border-top: 1px solid rgba(255,255,255,.15);
+
+  color: #7f98ae;
+  font-size: 10px;
+}
+
+
+/* ==========================================
+   BOTÃO FLUTUANTE
+   ========================================== */
+
+.floating-contact {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 900;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 15px 20px;
+
+  background: var(--orange);
+  color: white;
+
+  box-shadow: 0 8px 35px rgba(0,0,0,.2);
+
+  border-radius: 50px;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  transition: transform .25s ease;
+}
+
+.floating-contact:hover {
+  transform: translateY(-5px);
+}
+
+
+/* ==========================================
+   RESPONSIVIDADE — TABLETS
+   ========================================== */
+
+@media (max-width: 1100px) {
+
+  nav {
+    gap: 15px;
+  }
+
+  nav a {
+    font-size: 11px;
+  }
+
+  .nav-cta {
+    display: none;
+  }
+
+  .hero-grid {
+    gap: 35px;
+  }
+
+  .challenge {
+    padding: 20px;
+  }
+
+  .intro-grid,
+  .contact-grid,
+  .opportunity-grid {
+    gap: 55px;
+  }
+
+}
+
+
+/* ==========================================
+   RESPONSIVIDADE — CELULAR
+   ========================================== */
+
+@media (max-width: 768px) {
+
+  html {
+    scroll-padding-top: 76px;
+  }
+
+  .container {
+    width: min(90%, 550px);
+  }
+
+  .nav {
+    height: 73px;
+  }
+
+  .brand-text {
+    font-size: 20px;
+  }
+
+  .brand-mark {
+    width: 39px;
+    height: 39px;
+  }
+
+  .menu-toggle {
+    display: block;
+    z-index: 1002;
+  }
+
+  nav {
+    display: none;
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 73px;
+
+    flex-direction: column;
+    align-items: stretch;
+
+    background: white;
+
+    padding: 20px 5% 30px;
+
+    border-bottom: 1px solid var(--line);
+
+    box-shadow: 0 20px 35px rgba(0,0,0,.09);
+  }
+
+  nav.open {
+    display: flex;
+  }
+
+  nav a {
+    padding: 13px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+  }
+
+  .section {
+    padding: 75px 0;
+  }
+
+  h2 {
+    font-size: clamp(34px, 8vw, 45px);
+  }
+
+  /* HERO */
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+
+    padding-top: 70px;
+    padding-bottom: 40px;
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 11vw, 61px);
+  }
+
+  .hero-copy > p {
+    font-size: 14px;
+  }
+
+  .hero .hero-lead {
+    font-size: 17px;
+  }
+
+  .hero-note {
+    margin-top: 35px;
+  }
+
+  .hero-art {
+    height: 360px;
+  }
+
+  .hero-bottom span {
+    max-width: 270px;
+    line-height: 1.6;
+  }
+
+  /* CABEÇALHOS */
+
+  .section-head {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-bottom: 35px;
+  }
+
+  .section-head > p {
+    max-width: 100%;
+  }
+
+  /* DESAFIOS */
+
+  .challenge-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .challenge {
+    min-height: 270px;
+    padding: 19px;
+  }
+
+  .challenge-icon {
+    margin-top: 26px;
+    margin-bottom: 22px;
+
+    width: 55px;
+    height: 55px;
+
+    font-size: 26px;
+  }
+
+  .challenge h3 {
+    font-size: 16px;
+  }
+
+  .challenge p {
+    font-size: 12px;
+  }
+
+  /* APRESENTAÇÃO */
+
+  .intro-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  /* BENEFÍCIOS */
+
+  .benefit-layout {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .benefit-tab {
+    padding: 18px;
+    font-size: 12px;
+  }
+
+  .benefit-detail {
+    min-height: 360px;
+    padding: 27px;
+  }
+
+  .benefit-detail h3 {
+    margin-top: 45px;
+    font-size: 32px;
+  }
+
+  /* PASSOS */
+
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .steps article {
+    padding: 25px;
+  }
+
+  .steps article > span {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    font-size: 42px;
+  }
+
+  /* OPORTUNIDADES */
+
+  .opportunity-grid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .offer-card {
+    min-height: 360px;
+    padding: 27px;
+  }
+
+  .offer-card h3 {
+    font-size: 31px;
+  }
+
+  /* CONTATO */
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .contact-card {
+    padding: 27px;
+  }
+
+  /* RODAPÉ */
+
+  .footer-main {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 42px 25px;
+    padding-top: 55px;
+    padding-bottom: 50px;
+  }
+
+  .footer-main > div:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* BOTÃO FLUTUANTE */
+
+  .floating-contact {
+    bottom: 15px;
+    right: 15px;
+
+    padding: 13px 17px;
+    font-size: 11px;
+  }
+
+}
+
+
+/* ==========================================
+   CELULARES PEQUENOS
+   ========================================== */
+
+@media (max-width: 390px) {
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .hero-actions {
+    gap: 20px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .hero-art {
+    height: 310px;
+  }
+
+  .art-caption {
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    padding: 13px;
+  }
+
+  .art-caption strong {
+    font-size: 14px;
+  }
+
+  .challenge-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .challenge {
+    min-height: auto;
+  }
+
+  .challenge-icon {
+    margin-top: 20px;
+  }
+
+  .benefit-detail {
+    padding: 21px;
+  }
+
+  .detail-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+}
+
+
+/* ==========================================
+   ACESSIBILIDADE — MOVIMENTO REDUZIDO
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+
+}
+
+
+/* FIM DO ARQUIVO */
