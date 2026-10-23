@@ -1,21 +1,20 @@
 
 /* ==========================================
    REZENDE — CONECTA SÍNDICOS
+
    CONFIGURAÇÕES COMERCIAIS
    ========================================== */
 
 window.REZENDE_CONFIG = {
 
-  /* NOME DO ATENDIMENTO */
+  /* ATENDIMENTO */
 
   consultantName: 'Equipe Rezende',
 
   consultantRole: 'Atendimento especializado a condomínios',
 
 
-  /* ========================================
-     WHATSAPP POR REGIÃO
-     ======================================== */
+  /* WHATSAPP POR REGIÃO */
 
   whatsappLocations: [
 
@@ -43,7 +42,7 @@ window.REZENDE_CONFIG = {
   ],
 
 
-  /* MENSAGEM AUTOMÁTICA */
+  /* MENSAGEM AUTOMÁTICA DO WHATSAPP */
 
   whatsappMessage:
     'Olá! Conheci o Conecta Síndicos da Rezende e gostaria de saber mais sobre os benefícios e condições para o nosso condomínio.',
@@ -54,22 +53,23 @@ window.REZENDE_CONFIG = {
   email: '',
 
 
-  /* SITE INSTITUCIONAL */
+  /* SITE OFICIAL DA REZENDE */
 
   institutionalWebsite: '',
 
 
-  /* ========================================
-     CAMPANHA ATUAL
-     ======================================== */
+  /* CAMPANHA COMERCIAL */
 
   campaignTitle: 'Campanhas e oportunidades',
 
   campaignDescription:
     'Converse com nossa equipe para consultar os produtos participantes e as condições comerciais atualizadas.',
 
+
+  /* LINK DO ENCARTE DIGITAL */
+
   campaignUrl: ''
 
 };
 
-/* FIM DO ARQUIVO */
+/* FIM DO CONFIG.JS */
