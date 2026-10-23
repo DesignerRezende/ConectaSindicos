@@ -2,6 +2,8 @@
 /* ==========================================
    REZENDE — CONECTA SÍNDICOS
    ARQUIVO: style.css
+
+   VERSÃO COM ATENDIMENTO POR REGIÃO
    ========================================== */
 
 /* FONTES */
@@ -9,7 +11,9 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 
-/* CONFIGURAÇÕES GERAIS */
+/* ==========================================
+   01 — CONFIGURAÇÕES GERAIS
+   ========================================== */
 
 :root {
   --blue: #102d50;
@@ -146,7 +150,7 @@ p {
 
 
 /* ==========================================
-   BOTÕES
+   02 — BOTÕES
    ========================================== */
 
 .btn {
@@ -223,7 +227,7 @@ p {
 
 
 /* ==========================================
-   CABEÇALHO / MENU
+   03 — CABEÇALHO / MENU
    ========================================== */
 
 .site-header {
@@ -333,7 +337,7 @@ nav a:hover {
 
 
 /* ==========================================
-   HERO / PRIMEIRA TELA
+   04 — HERO / PRIMEIRA TELA
    ========================================== */
 
 .hero {
@@ -434,7 +438,9 @@ nav a:hover {
 }
 
 
-/* ARQUITETURA VISUAL DO HERO */
+/* ==========================================
+   05 — ILUSTRAÇÃO ARQUITETÔNICA
+   ========================================== */
 
 .hero-art {
   height: 470px;
@@ -577,7 +583,7 @@ nav a:hover {
 
 
 /* ==========================================
-   SEÇÕES GERAIS
+   06 — SEÇÕES GERAIS
    ========================================== */
 
 .section {
@@ -609,7 +615,7 @@ nav a:hover {
 
 
 /* ==========================================
-   DESAFIOS
+   07 — DESAFIOS
    ========================================== */
 
 .challenge-grid {
@@ -696,7 +702,7 @@ nav a:hover {
 
 
 /* ==========================================
-   APRESENTAÇÃO DO PROGRAMA
+   08 — APRESENTAÇÃO DO PROGRAMA
    ========================================== */
 
 .intro {
@@ -726,7 +732,7 @@ nav a:hover {
 
 
 /* ==========================================
-   BENEFÍCIOS INTERATIVOS
+   09 — BENEFÍCIOS INTERATIVOS
    ========================================== */
 
 .blue {
@@ -894,7 +900,7 @@ nav a:hover {
 
 
 /* ==========================================
-   COMO FUNCIONA
+   10 — COMO FUNCIONA
    ========================================== */
 
 .steps {
@@ -947,7 +953,7 @@ nav a:hover {
 
 
 /* ==========================================
-   OPORTUNIDADES COMERCIAIS
+   11 — OPORTUNIDADES COMERCIAIS
    ========================================== */
 
 .opportunities {
@@ -1068,7 +1074,8 @@ nav a:hover {
 
 
 /* ==========================================
-   CONTATO
+   12 — CONTATO POR REGIÃO
+   NOVA FRIBURGO / RIO / NITERÓI
    ========================================== */
 
 .contact {
@@ -1077,126 +1084,223 @@ nav a:hover {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr .8fr;
+  grid-template-columns: 1fr .9fr;
 
-  gap: 100px;
+  gap: 80px;
   align-items: center;
 }
 
+/* TEXTO DE APRESENTAÇÃO */
+
 .contact h2 {
-  margin-bottom: 25px;
+  margin-bottom: 28px;
 }
 
-.contact-grid > div:first-child > p {
+.contact-intro > p {
   color: var(--muted);
   font-size: 15px;
   max-width: 550px;
+  margin-bottom: 18px;
 }
 
 .contact-small {
-  margin-top: 24px;
-  font-size: 12px !important;
+  margin-top: 28px;
+  padding-left: 17px;
+
+  border-left: 3px solid var(--orange);
+
+  font-size: 13px !important;
   font-weight: 700;
-  color: var(--orange) !important;
+
+  color: var(--blue) !important;
 }
 
+/* CARTÃO PRINCIPAL */
+
 .contact-card {
-  padding: 35px;
+  padding: 36px;
 
   background: var(--cream);
+
   border: 1px solid var(--line);
-  border-radius: 7px;
+  border-radius: 8px;
+
+  box-shadow: 0 15px 45px rgba(16,45,80,.04);
 }
 
 .contact-card-top {
+  display: block;
+
   color: var(--orange);
+
   font-size: 10px;
-  letter-spacing: .1em;
+  letter-spacing: .12em;
   font-weight: 800;
+
+  margin-bottom: 25px;
 }
 
-.contact-identity {
+.region-title {
+  color: var(--blue);
+
+  font-size: clamp(23px, 2.2vw, 30px);
+  font-weight: 800;
+
+  margin-bottom: 10px;
+}
+
+.region-subtitle {
+  font-size: 13px;
+  line-height: 1.7;
+
+  color: var(--muted);
+
+  margin-bottom: 28px;
+}
+
+/* CADA UMA DAS TRÊS REGIÕES */
+
+.region-option {
   display: flex;
   align-items: center;
-  gap: 18px;
+  justify-content: space-between;
 
-  margin-top: 35px;
-  margin-bottom: 30px;
+  gap: 15px;
+
+  padding: 20px;
+
+  margin-bottom: 11px;
+
+  background: white;
+
+  border: 1px solid #e2e4e6;
+  border-radius: 7px;
+
+  transition:
+    border-color .25s ease,
+    transform .25s ease,
+    box-shadow .25s ease;
 }
 
-.avatar {
+.region-option:hover {
+  border-color: var(--orange);
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 10px 25px rgba(16,45,80,.07);
+}
+
+/* ÍCONE + CIDADE + TELEFONE */
+
+.region-info {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+  min-width: 0;
+}
+
+.region-icon {
   display: flex;
   align-items: center;
   justify-content: center;
 
-  width: 65px;
-  height: 65px;
+  flex-shrink: 0;
+
+  width: 39px;
+  height: 39px;
+
+  background: #fff0e5;
+  color: var(--orange);
+
+  border-radius: 50%;
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.region-info > div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+  min-width: 0;
+}
+
+.region-info strong {
+  color: var(--blue);
+
+  font-family: var(--font-title);
+  font-size: 13px;
+  font-weight: 800;
+
+  line-height: 1.3;
+}
+
+.region-info > div > span {
+  color: var(--muted);
+
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* BOTÃO DO WHATSAPP */
+
+.region-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
   flex-shrink: 0;
+
+  gap: 8px;
+  padding: 12px 15px;
 
   background: var(--blue);
   color: white;
 
-  font-family: var(--font-title);
-  font-weight: 800;
-  font-size: 29px;
-  letter-spacing: -3px;
+  border: 1px solid var(--blue);
+  border-radius: 5px;
 
-  border-radius: 50%;
-}
-
-.contact-identity > div:last-child {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.contact-identity strong {
-  font-size: 17px;
-  color: var(--blue);
-}
-
-.contact-identity span {
   font-size: 11px;
-  color: var(--muted);
+  font-weight: 800;
+  white-space: nowrap;
+
+  transition:
+    background .25s ease,
+    border-color .25s ease,
+    transform .25s ease;
 }
 
-.contact-button {
-  display: flex;
-  width: 100%;
-  padding: 19px;
+.region-button:hover {
+  background: var(--orange);
+  border-color: var(--orange);
+
+  transform: translateY(-2px);
 }
 
-.email-link {
-  display: block;
-  margin-top: 19px;
-
-  text-align: center;
-  color: var(--blue);
-
-  font-size: 12px;
-  font-weight: 700;
-
-  overflow-wrap: anywhere;
+.region-button:active {
+  transform: scale(.98);
 }
 
-.email-link:hover {
-  color: var(--orange);
-}
+/* AVISO ABAIXO DOS CONTATOS */
 
-.contact-card > p {
-  margin-top: 26px;
-  padding-top: 18px;
+.region-disclaimer {
+  margin-top: 23px;
+  padding-top: 19px;
 
   border-top: 1px solid #dadddf;
 
   font-size: 11px;
+  line-height: 1.7;
+
   color: var(--muted);
 }
 
 
 /* ==========================================
-   RODAPÉ
+   13 — RODAPÉ
    ========================================== */
 
 footer {
@@ -1267,7 +1371,7 @@ footer {
 
 
 /* ==========================================
-   BOTÃO FLUTUANTE
+   14 — BOTÃO FLUTUANTE
    ========================================== */
 
 .floating-contact {
@@ -1292,16 +1396,19 @@ footer {
   font-size: 12px;
   font-weight: 800;
 
-  transition: transform .25s ease;
+  transition:
+    transform .25s ease,
+    background .25s ease;
 }
 
 .floating-contact:hover {
   transform: translateY(-5px);
+  background: #d86511;
 }
 
 
 /* ==========================================
-   RESPONSIVIDADE — TABLETS
+   15 — RESPONSIVIDADE / TABLETS
    ========================================== */
 
 @media (max-width: 1100px) {
@@ -1329,14 +1436,27 @@ footer {
   .intro-grid,
   .contact-grid,
   .opportunity-grid {
-    gap: 55px;
+    gap: 45px;
+  }
+
+  .contact-card {
+    padding: 25px;
+  }
+
+  .region-option {
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .region-button {
+    padding: 11px 12px;
   }
 
 }
 
 
 /* ==========================================
-   RESPONSIVIDADE — CELULAR
+   16 — RESPONSIVIDADE / CELULAR
    ========================================== */
 
 @media (max-width: 768px) {
@@ -1393,7 +1513,9 @@ footer {
 
   nav a {
     padding: 13px 0;
+
     border-bottom: 1px solid var(--line);
+
     font-size: 14px;
   }
 
@@ -1404,6 +1526,7 @@ footer {
   h2 {
     font-size: clamp(34px, 8vw, 45px);
   }
+
 
   /* HERO */
 
@@ -1441,10 +1564,12 @@ footer {
     line-height: 1.6;
   }
 
+
   /* CABEÇALHOS */
 
   .section-head {
     grid-template-columns: 1fr;
+
     gap: 22px;
     margin-bottom: 35px;
   }
@@ -1452,6 +1577,7 @@ footer {
   .section-head > p {
     max-width: 100%;
   }
+
 
   /* DESAFIOS */
 
@@ -1483,12 +1609,14 @@ footer {
     font-size: 12px;
   }
 
+
   /* APRESENTAÇÃO */
 
   .intro-grid {
     grid-template-columns: 1fr;
     gap: 30px;
   }
+
 
   /* BENEFÍCIOS */
 
@@ -1512,7 +1640,8 @@ footer {
     font-size: 32px;
   }
 
-  /* PASSOS */
+
+  /* COMO FUNCIONA */
 
   .steps {
     grid-template-columns: 1fr;
@@ -1528,6 +1657,7 @@ footer {
     padding-bottom: 20px;
     font-size: 42px;
   }
+
 
   /* OPORTUNIDADES */
 
@@ -1545,22 +1675,46 @@ footer {
     font-size: 31px;
   }
 
-  /* CONTATO */
+
+  /* CONTATO POR REGIÃO */
 
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 35px;
   }
 
+  .contact-intro > p {
+    font-size: 14px;
+  }
+
   .contact-card {
     padding: 27px;
   }
+
+  .region-title {
+    font-size: 25px;
+  }
+
+  .region-option {
+    padding: 17px;
+  }
+
+  .region-info strong {
+    font-size: 13px;
+  }
+
+  .region-button {
+    padding: 12px 14px;
+  }
+
 
   /* RODAPÉ */
 
   .footer-main {
     grid-template-columns: repeat(2, 1fr);
+
     gap: 42px 25px;
+
     padding-top: 55px;
     padding-bottom: 50px;
   }
@@ -1573,6 +1727,7 @@ footer {
     flex-direction: column;
     gap: 8px;
   }
+
 
   /* BOTÃO FLUTUANTE */
 
@@ -1588,7 +1743,7 @@ footer {
 
 
 /* ==========================================
-   CELULARES PEQUENOS
+   17 — CELULARES PEQUENOS
    ========================================== */
 
 @media (max-width: 390px) {
@@ -1641,11 +1796,29 @@ footer {
     flex-direction: column;
   }
 
+
+  /* CONTATOS EMPILHADOS */
+
+  .region-option {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+
+  .region-button {
+    width: 100%;
+    padding: 14px;
+  }
+
+  .contact-card {
+    padding: 20px;
+  }
+
 }
 
 
 /* ==========================================
-   ACESSIBILIDADE — MOVIMENTO REDUZIDO
+   18 — ACESSIBILIDADE
    ========================================== */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1661,4 +1834,6 @@ footer {
 }
 
 
-/* FIM DO ARQUIVO */
+/* ==========================================
+   FIM DO ARQUIVO
+   ========================================== */
