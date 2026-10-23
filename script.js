@@ -2,20 +2,30 @@
 /* ==========================================
    REZENDE — CONECTA SÍNDICOS
    ARQUIVO: script.js
+
+   VERSÃO COM 3 WHATSAPPS:
+   - Nova Friburgo
+   - Rio de Janeiro
+   - Niterói
    ========================================== */
 
 'use strict';
 
+
 /* ==========================================
-   01 — INICIAR O SITE
+   01 — INICIALIZAÇÃO DO SITE
    ========================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
 
   iniciarMenu();
+
   iniciarBeneficios();
+
   carregarConfiguracoes();
+
   atualizarAno();
+
   iniciarNavegacao();
 
 });
@@ -28,15 +38,18 @@ document.addEventListener('DOMContentLoaded', function () {
 function iniciarMenu() {
 
   const botaoMenu = document.querySelector('.menu-toggle');
+
   const menu = document.querySelector('#nav');
 
   if (!botaoMenu || !menu) return;
+
 
   function fecharMenu() {
 
     menu.classList.remove('open');
 
     botaoMenu.setAttribute('aria-expanded', 'false');
+
     botaoMenu.setAttribute('aria-label', 'Abrir menu');
 
     botaoMenu.textContent = '☰';
@@ -44,6 +57,7 @@ function iniciarMenu() {
     document.body.classList.remove('menu-open');
 
   }
+
 
   botaoMenu.addEventListener('click', function () {
 
@@ -62,32 +76,37 @@ function iniciarMenu() {
 
   });
 
-  // Fecha o menu ao clicar em uma seção.
 
-  const links = menu.querySelectorAll('a');
+  /* FECHAR AO SELECIONAR UMA SEÇÃO */
 
-  links.forEach(function (link) {
+  menu.querySelectorAll('a').forEach(function (link) {
 
     link.addEventListener('click', fecharMenu);
 
   });
 
-  // Fecha o menu ao pressionar ESC.
+
+  /* FECHAR COM A TECLA ESC */
 
   document.addEventListener('keydown', function (evento) {
 
     if (evento.key === 'Escape') {
+
       fecharMenu();
+
     }
 
   });
 
-  // Fecha o menu ao voltar para a visualização desktop.
+
+  /* FECHAR AO VOLTAR PARA DESKTOP */
 
   window.addEventListener('resize', function () {
 
     if (window.innerWidth > 768) {
+
       fecharMenu();
+
     }
 
   });
@@ -99,17 +118,10 @@ function iniciarMenu() {
    03 — CONTEÚDO DOS BENEFÍCIOS
    ========================================== */
 
-/*
-  Aqui ficam armazenadas as informações
-  dos seis benefícios do Conecta Síndicos.
-
-  Os botões e o cartão principal utilizam
-  estas informações automaticamente.
-*/
-
 const beneficios = [
 
   {
+
     numero: '01',
 
     icone: '◎',
@@ -118,9 +130,11 @@ const beneficios = [
 
     descricao:
       'Canal de atendimento direto e personalizado, com consultores dedicados para ajudar nas demandas do condomínio.'
+
   },
 
   {
+
     numero: '02',
 
     icone: '✳',
@@ -129,9 +143,11 @@ const beneficios = [
 
     descricao:
       'Consultoria especializada e oportunidades de treinamento com marcas parceiras, aproximando sua gestão de informações e soluções para obras e manutenção.'
+
   },
 
   {
+
     numero: '03',
 
     icone: '▤',
@@ -140,9 +156,11 @@ const beneficios = [
 
     descricao:
       'Apoio na organização das informações financeiras das compras realizadas, facilitando o acompanhamento de investimentos e despesas do condomínio.'
+
   },
 
   {
+
     numero: '04',
 
     icone: '↗',
@@ -151,9 +169,11 @@ const beneficios = [
 
     descricao:
       'Condições de logística e entrega expressa, conforme disponibilidade, para ajudar o condomínio a receber os materiais necessários com mais agilidade.'
+
   },
 
   {
+
     numero: '05',
 
     icone: '◇',
@@ -162,9 +182,11 @@ const beneficios = [
 
     descricao:
       'Possibilidades de crédito, faturamento e condições comerciais especiais, sujeitas à análise e às políticas vigentes da Rezende.'
+
   },
 
   {
+
     numero: '06',
 
     icone: '★',
@@ -173,6 +195,7 @@ const beneficios = [
 
     descricao:
       'Acesso às possibilidades do Ponto Premiado, campanhas de relacionamento e experiências exclusivas, conforme as regras e condições de cada iniciativa.'
+
   }
 
 ];
@@ -196,6 +219,7 @@ function iniciarBeneficios() {
 
   const descricao = document.getElementById('detail-description');
 
+
   if (
     !botoes.length ||
     !numero ||
@@ -203,14 +227,18 @@ function iniciarBeneficios() {
     !titulo ||
     !descricao
   ) {
+
     return;
+
   }
+
 
   function selecionarBeneficio(indice) {
 
     const beneficio = beneficios[indice];
 
     if (!beneficio) return;
+
 
     numero.textContent =
       'BENEFÍCIO ' + beneficio.numero + ' / 06';
@@ -220,6 +248,7 @@ function iniciarBeneficios() {
     titulo.textContent = beneficio.titulo;
 
     descricao.textContent = beneficio.descricao;
+
 
     botoes.forEach(function (botao, posicao) {
 
@@ -238,6 +267,9 @@ function iniciarBeneficios() {
 
   }
 
+
+  /* CLIQUE NOS BENEFÍCIOS */
+
   botoes.forEach(function (botao, indice) {
 
     botao.addEventListener('click', function () {
@@ -246,14 +278,18 @@ function iniciarBeneficios() {
 
     });
 
-    // Permite navegar pelas opções usando o teclado.
+
+    /* NAVEGAÇÃO PELO TECLADO */
 
     botao.addEventListener('keydown', function (evento) {
 
       let proximo = indice;
 
-      if (evento.key === 'ArrowDown' ||
-          evento.key === 'ArrowRight') {
+
+      if (
+        evento.key === 'ArrowDown' ||
+        evento.key === 'ArrowRight'
+      ) {
 
         proximo = (indice + 1) % botoes.length;
 
@@ -279,6 +315,7 @@ function iniciarBeneficios() {
 
       }
 
+
       evento.preventDefault();
 
       selecionarBeneficio(proximo);
@@ -289,7 +326,6 @@ function iniciarBeneficios() {
 
   });
 
-  // Exibe o primeiro benefício ao carregar a página.
 
   selecionarBeneficio(0);
 
@@ -297,98 +333,15 @@ function iniciarBeneficios() {
 
 
 /* ==========================================
-   05 — CONFIGURAÇÕES COMERCIAIS
+   05 — CARREGAR CONFIGURAÇÕES
    ========================================== */
-
-/*
-  Os dados comerciais são carregados do
-  arquivo config.js.
-
-  Isso permite alterar WhatsApp, consultor
-  e campanhas sem editar este script.
-*/
 
 function carregarConfiguracoes() {
 
   const config = window.REZENDE_CONFIG || {};
 
-  const nomeConsultor =
-    config.consultantName || 'Equipe Rezende';
 
-  const cargoConsultor =
-    config.consultantRole ||
-    'Atendimento especializado a condomínios';
-
-  const email =
-    typeof config.email === 'string'
-      ? config.email.trim()
-      : '';
-
-  const nomeElemento =
-    document.getElementById('consultant-name');
-
-  const cargoElemento =
-    document.getElementById('consultant-role');
-
-  if (nomeElemento) {
-    nomeElemento.textContent = nomeConsultor;
-  }
-
-  if (cargoElemento) {
-    cargoElemento.textContent = cargoConsultor;
-  }
-
-
-  /* E-MAIL */
-
-  const emailElemento =
-    document.getElementById('email-link');
-
-  const emailValido =
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-  if (emailElemento) {
-
-    if (emailValido) {
-
-      emailElemento.textContent = email;
-
-      emailElemento.href = 'mailto:' + email;
-
-    } else {
-
-      emailElemento.hidden = true;
-
-    }
-
-  }
-
-
-  /* SITE INSTITUCIONAL */
-
-  const siteElemento =
-    document.getElementById('website-link');
-
-  if (siteElemento) {
-
-    const site = config.institutionalWebsite || '';
-
-    const endereco = validarEndereco(site);
-
-    if (endereco) {
-
-      siteElemento.href = endereco;
-
-    } else {
-
-      siteElemento.hidden = true;
-
-    }
-
-  }
-
-
-  /* CAMPANHA COMERCIAL */
+  /* CAMPANHA ATUAL */
 
   const tituloCampanha =
     document.getElementById('campaign-title');
@@ -399,6 +352,7 @@ function carregarConfiguracoes() {
   const botaoCampanha =
     document.getElementById('campaign-link');
 
+
   if (tituloCampanha) {
 
     tituloCampanha.textContent =
@@ -407,6 +361,7 @@ function carregarConfiguracoes() {
 
   }
 
+
   if (descricaoCampanha) {
 
     descricaoCampanha.textContent =
@@ -414,6 +369,7 @@ function carregarConfiguracoes() {
       'Consulte as oportunidades comerciais vigentes com nossa equipe.';
 
   }
+
 
   if (botaoCampanha) {
 
@@ -437,6 +393,8 @@ function carregarConfiguracoes() {
 
       botaoCampanha.removeAttribute('target');
 
+      botaoCampanha.removeAttribute('rel');
+
       botaoCampanha.textContent =
         'Consultar campanha atual ↗';
 
@@ -445,165 +403,263 @@ function carregarConfiguracoes() {
   }
 
 
-  /* WHATSAPP */
+  /* SITE INSTITUCIONAL */
 
-  configurarWhatsApp(config, emailValido ? email : '');
+  const siteElemento =
+    document.getElementById('website-link');
 
-}
+  if (siteElemento) {
 
+    const endereco =
+      validarEndereco(config.institutionalWebsite);
 
-/* ==========================================
-   06 — WHATSAPP
-   ========================================== */
+    if (endereco) {
 
-function configurarWhatsApp(config, email) {
-
-  const botaoWhatsApp =
-    document.getElementById('whatsapp-link');
-
-  const botaoFlutuante =
-    document.getElementById('floating-whatsapp');
-
-  const telefone = String(
-    config.whatsappNumber || ''
-  ).replace(/\D/g, '');
-
-  const mensagem =
-    config.whatsappMessage ||
-    'Olá! Gostaria de conhecer o Conecta Síndicos da Rezende.';
-
-  // Número brasileiro: 55 + DDD + telefone.
-  // Exemplo de formato: 5521999999999.
-
-  const telefoneValido =
-    /^55\d{10,11}$/.test(telefone);
-
-  let enderecoContato = '#contato';
-
-  let contatoExterno = false;
-
-  if (telefoneValido) {
-
-    enderecoContato =
-      'https://wa.me/' +
-      telefone +
-      '?text=' +
-      encodeURIComponent(mensagem);
-
-    contatoExterno = true;
-
-  } else if (email) {
-
-    enderecoContato =
-      'mailto:' +
-      email +
-      '?subject=' +
-      encodeURIComponent('Interesse no Conecta Síndicos') +
-      '&body=' +
-      encodeURIComponent(mensagem);
-
-  }
-
-
-  /* BOTÃO PRINCIPAL */
-
-  if (botaoWhatsApp) {
-
-    if (telefoneValido) {
-
-      botaoWhatsApp.href = enderecoContato;
-
-      botaoWhatsApp.textContent =
-        'Iniciar conversa no WhatsApp ↗';
-
-      botaoWhatsApp.target = '_blank';
-
-      botaoWhatsApp.rel = 'noopener noreferrer';
-
-    } else if (email) {
-
-      botaoWhatsApp.href = enderecoContato;
-
-      botaoWhatsApp.textContent =
-        'Entrar em contato por e-mail ↗';
-
-      botaoWhatsApp.removeAttribute('target');
-
-      botaoWhatsApp.removeAttribute('rel');
+      siteElemento.href = endereco;
 
     } else {
 
-      botaoWhatsApp.hidden = true;
+      siteElemento.hidden = true;
 
     }
 
   }
+
+
+  /* CONFIGURAR OS TRÊS WHATSAPPS */
+
+  configurarWhatsApps(config);
 
 
   /* BOTÃO FLUTUANTE */
 
-  if (botaoFlutuante) {
-
-    if (telefoneValido || email) {
-
-      botaoFlutuante.href = enderecoContato;
-
-      botaoFlutuante.textContent =
-        telefoneValido
-          ? 'Fale pelo WhatsApp ↗'
-          : 'Fale com a Rezende ↗';
-
-      if (contatoExterno) {
-
-        botaoFlutuante.target = '_blank';
-
-        botaoFlutuante.rel = 'noopener noreferrer';
-
-      } else {
-
-        botaoFlutuante.removeAttribute('target');
-
-        botaoFlutuante.removeAttribute('rel');
-
-      }
-
-    } else {
-
-      botaoFlutuante.href = '#contato';
-
-      botaoFlutuante.textContent =
-        'Ver atendimento ↗';
-
-    }
-
-  }
+  configurarBotaoFlutuante();
 
 }
 
 
 /* ==========================================
-   07 — VALIDAR LINKS EXTERNOS
+   06 — WHATSAPP POR REGIÃO
    ========================================== */
 
 /*
-  Aceita apenas URLs que começam com
-  http:// ou https://.
+  Os números são carregados do config.js.
 
-  Evita que endereços incorretos sejam
-  adicionados aos botões.
+  Cada botão recebe automaticamente:
+
+  - O número da região.
+  - A mensagem comercial.
+  - O endereço correto do WhatsApp.
+
+  Não é necessário alterar os números
+  diretamente neste arquivo.
 */
+
+function configurarWhatsApps(config) {
+
+  const localidades = Array.isArray(config.whatsappLocations)
+    ? config.whatsappLocations
+    : [];
+
+  const mensagemPadrao =
+    config.whatsappMessage ||
+    'Olá! Conheci o Conecta Síndicos da Rezende e gostaria de saber mais sobre os benefícios para nosso condomínio.';
+
+
+  localidades.forEach(function (localidade) {
+
+    if (!localidade || typeof localidade !== 'object') {
+      return;
+    }
+
+
+    const id = localidade.id;
+
+    const numero = String(
+      localidade.number || ''
+    ).replace(/\D/g, '');
+
+
+    const botao =
+      document.getElementById('whatsapp-' + id);
+
+
+    if (!botao) {
+      return;
+    }
+
+
+    /* VALIDAR TELEFONE BRASILEIRO */
+
+    const numeroValido =
+      /^55\d{10,11}$/.test(numero);
+
+
+    if (!numeroValido) {
+
+      // Não permite abrir um telefone incorreto.
+
+      botao.removeAttribute('href');
+
+      botao.removeAttribute('target');
+
+      botao.setAttribute('aria-disabled', 'true');
+
+      botao.style.opacity = '0.5';
+
+      botao.style.pointerEvents = 'none';
+
+      botao.textContent = 'Indisponível';
+
+      return;
+
+    }
+
+
+    /* MENSAGEM PERSONALIZADA */
+
+    const mensagem = mensagemPadrao;
+
+
+    /* CRIAR LINK DO WHATSAPP */
+
+    const link =
+      'https://wa.me/' +
+      numero +
+      '?text=' +
+      encodeURIComponent(mensagem);
+
+
+    /* APLICAR LINK NO BOTÃO */
+
+    botao.href = link;
+
+    botao.target = '_blank';
+
+    botao.rel = 'noopener noreferrer';
+
+    botao.removeAttribute('aria-disabled');
+
+    botao.textContent = 'Conversar ↗';
+
+
+    /* IDENTIFICAÇÃO ACESSÍVEL */
+
+    const nomeRegiao =
+      localidade.name || 'sua região';
+
+    botao.setAttribute(
+      'aria-label',
+      'Conversar com a Rezende de ' +
+      nomeRegiao +
+      ' pelo WhatsApp'
+    );
+
+  });
+
+
+  /* VERIFICAR SE TODOS OS BOTÕES POSSUEM CONFIGURAÇÃO */
+
+  const idsEsperados = [
+    'friburgo',
+    'rio',
+    'niteroi'
+  ];
+
+  idsEsperados.forEach(function (id) {
+
+    const existe = localidades.some(function (localidade) {
+
+      return localidade && localidade.id === id;
+
+    });
+
+    if (existe) {
+      return;
+    }
+
+    const botao =
+      document.getElementById('whatsapp-' + id);
+
+    if (botao) {
+
+      botao.removeAttribute('href');
+
+      botao.removeAttribute('target');
+
+      botao.setAttribute('aria-disabled', 'true');
+
+      botao.style.opacity = '0.5';
+
+      botao.style.pointerEvents = 'none';
+
+      botao.textContent = 'Indisponível';
+
+    }
+
+  });
+
+}
+
+
+/* ==========================================
+   07 — BOTÃO FLUTUANTE
+   ========================================== */
+
+/*
+  Como agora existem três WhatsApps,
+  o botão flutuante não abre diretamente
+  nenhum telefone.
+
+  Ele leva o visitante até a seção onde
+  poderá escolher sua região.
+*/
+
+function configurarBotaoFlutuante() {
+
+  const botao =
+    document.getElementById('floating-whatsapp');
+
+  if (!botao) return;
+
+
+  botao.href = '#contato';
+
+  botao.removeAttribute('target');
+
+  botao.removeAttribute('rel');
+
+  botao.textContent = 'Fale com a Rezende ↗';
+
+  botao.setAttribute(
+    'aria-label',
+    'Escolher uma região para conversar com a Rezende'
+  );
+
+}
+
+
+/* ==========================================
+   08 — VALIDAR LINKS EXTERNOS
+   ========================================== */
 
 function validarEndereco(valor) {
 
   if (typeof valor !== 'string') {
+
     return '';
+
   }
+
 
   const texto = valor.trim();
 
   if (!texto) {
+
     return '';
+
   }
+
 
   try {
 
@@ -624,13 +680,14 @@ function validarEndereco(valor) {
 
   }
 
+
   return '';
 
 }
 
 
 /* ==========================================
-   08 — ANO AUTOMÁTICO NO RODAPÉ
+   09 — ANO AUTOMÁTICO NO RODAPÉ
    ========================================== */
 
 function atualizarAno() {
@@ -649,7 +706,7 @@ function atualizarAno() {
 
 
 /* ==========================================
-   09 — NAVEGAÇÃO INTERNA
+   10 — NAVEGAÇÃO INTERNA
    ========================================== */
 
 function iniciarNavegacao() {
@@ -657,41 +714,63 @@ function iniciarNavegacao() {
   const linksInternos =
     document.querySelectorAll('a[href^="#"]');
 
+
   linksInternos.forEach(function (link) {
 
     link.addEventListener('click', function (evento) {
 
-      const destinoId = link.getAttribute('href');
+      const destinoId =
+        link.getAttribute('href');
+
 
       if (!destinoId || destinoId === '#') {
+
         return;
+
       }
+
 
       const destino =
-        document.getElementById(destinoId.substring(1));
+        document.getElementById(
+          destinoId.substring(1)
+        );
+
 
       if (!destino) {
+
         return;
+
       }
 
+
       evento.preventDefault();
+
+
+      /* RESPEITAR ACESSIBILIDADE */
 
       const movimentoReduzido =
         window.matchMedia(
           '(prefers-reduced-motion: reduce)'
         ).matches;
 
+
       destino.scrollIntoView({
 
-        behavior: movimentoReduzido ? 'auto' : 'smooth',
+        behavior: movimentoReduzido
+          ? 'auto'
+          : 'smooth',
 
         block: 'start'
 
       });
 
-      // Atualiza a URL mantendo o identificador da seção.
 
-      if (window.history && window.history.replaceState) {
+      /* ATUALIZAR A URL */
+
+      if (
+        window.history &&
+        window.history.replaceState
+      ) {
 
         window.history.replaceState(
           null,
