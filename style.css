@@ -69,3 +69,21 @@
  .intro-content h2{margin-bottom:23px}
  .hero-copy>.eyebrow{margin-bottom:20px}
 }
+
+
+/* V4 — APRESENTAÇÃO DO CONECTA SÍNDICOS EM VÍDEO */
+.video-section{background:#f5f3ef;border-top:1px solid var(--line)}
+.video-layout{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);align-items:center;gap:clamp(35px,6vw,85px)}
+.video-copy h2{font-size:clamp(34px,3.7vw,53px);max-width:520px;margin:0 0 22px;line-height:1.15}
+.video-copy>p{font-size:16px;color:var(--muted);max-width:460px;margin-bottom:26px}
+.video-copy .eyebrow{margin-bottom:22px}
+.video-media{min-width:0}
+.video-frame{width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:10px;background:#122945;box-shadow:0 20px 55px rgba(13,32,57,.18)}
+.video-frame iframe{display:block;width:100%;height:100%;border:0}
+.video-footer{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:15px;color:var(--blue);font-size:11px;font-weight:800}
+.video-footer>span{display:inline-flex;gap:9px;align-items:center;letter-spacing:.04em}
+.video-footer svg{width:18px;height:18px;color:var(--orange)}
+.video-footer a{color:var(--orange);white-space:nowrap}
+.video-footer a:hover{text-decoration:underline}
+@media(max-width:900px){.video-layout{grid-template-columns:1fr;gap:30px}.video-copy h2{max-width:680px}.video-copy>p{max-width:660px}}
+@media(max-width:600px){.video-copy h2{font-size:clamp(32px,8vw,43px)}.video-copy>p{font-size:14px}.video-copy .btn{width:100%;text-align:center}.video-footer{font-size:10px;flex-wrap:wrap}}
